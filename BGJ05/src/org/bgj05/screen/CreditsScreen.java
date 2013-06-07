@@ -1,7 +1,7 @@
-package org.bgj05.graphics.screen;
+package org.bgj05.screen;
 
-public class PauseScreen implements IScreen {
-	public PauseScreen() { this.init(); }
+public class CreditsScreen implements IScreen {
+	public CreditsScreen() { this.init(); }
 	
 	public void init() {
 	}

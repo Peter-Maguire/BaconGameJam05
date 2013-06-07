@@ -1,4 +1,4 @@
-package org.bgj05.graphics.screen;
+package org.bgj05.screen;
 
 public interface IScreen {
 	public void init();	

@@ -1,7 +1,8 @@
 package org.bgj05.main;
 
 import java.util.HashMap;
-import org.bgj05.graphics.screen.*;
+
+import org.bgj05.screen.*;
 
 public class ScreenManager {
 	private HashMap<String, IScreen> screenMap;

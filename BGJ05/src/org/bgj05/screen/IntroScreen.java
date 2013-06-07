@@ -1,7 +1,7 @@
-package org.bgj05.graphics.screen;
+package org.bgj05.screen;
 
-public class GameScreen implements IScreen {
-	public GameScreen() { this.init(); }
+public class IntroScreen implements IScreen {
+	public IntroScreen() { this.init(); }
 	
 	public void init() {
 	}
