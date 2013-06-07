@@ -13,8 +13,11 @@ public class MainComponent extends Base2DGame {
 	private static ScreenManager screenManager;
 	public static ScreenManager screenManager() { return screenManager; }
 	
-	private static Random randomGenerator;
-	public static Random randomGenerator() { return randomGenerator; } 
+	private static Random random;
+	public static Random random() { return random; }
+	
+	private static Content content;
+	public static Content content() { return content; }
 	
 	public MainComponent() {
 		super("BGJ 05", SCREEN_WIDTH, SCREEN_HEIGHT, true, false);
@@ -22,7 +25,8 @@ public class MainComponent extends Base2DGame {
 
 	protected void init() {
 		screenManager = new ScreenManager();
-		randomGenerator = new Random();
+		random = new Random();
+		content = new Content();
 	}
 	
 	protected void update() {

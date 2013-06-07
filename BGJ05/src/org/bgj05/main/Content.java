@@ -10,6 +10,12 @@ public class Content {
 	private HashMap<String, Texture2D> textureMap;
 	private HashMap<String, Waveform>  audioMap;
 	
+	public Content() {
+		textureMap = new HashMap<String, Texture2D>();
+		audioMap   = new HashMap<String, Waveform>();
+		this.init();
+	}
+	
 	public Texture2D getTexture(String name) {
 		return textureMap.get(name);
 	}
@@ -18,25 +24,27 @@ public class Content {
 		return audioMap.get(name);
 	}
 	
-	public void loadTexture(String name, String path) {
+	protected void loadTexture(String name, String path) {
 		if (textureMap.containsKey(name)) {
 			System.out.println("Texture \"" + name + "\" already exists!");
 			return; 
 		}
 		
-		try {
-			textureMap.put(name, Isjaki.loadTexture(path));
-		} catch (IOException e) { e.printStackTrace(); }
+		try { textureMap.put(name, Isjaki.loadTexture(path)); } 
+		catch (IOException e) { e.printStackTrace(); }
 	}
 	
-	public void loadWaveform(String name, String path) {
+	protected void loadWaveform(String name, String path) {
 		if (textureMap.containsKey(name)) {
 			System.out.println("Waveform \"" + name + "\" already exists!");
 			return; 
 		}
 		
-		try {
-			audioMap.put(name, Isjaki.loadWaveform(path));
-		} catch (IOException e) { e.printStackTrace(); }
+		try { audioMap.put(name, Isjaki.loadWaveform(path)); } 
+		catch (IOException e) { e.printStackTrace(); }
+	}
+	
+	public void init() {
+		this.loadTexture("Test_Name", "res/test.png");
 	}
 }
