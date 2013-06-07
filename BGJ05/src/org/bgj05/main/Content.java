@@ -19,18 +19,24 @@ public class Content {
 	}
 	
 	public void loadTexture(String name, String path) {
+		if (textureMap.containsKey(name)) {
+			System.out.println("Texture \"" + name + "\" already exists!");
+			return; 
+		}
+		
 		try {
 			textureMap.put(name, Isjaki.loadTexture(path));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		} catch (IOException e) { e.printStackTrace(); }
 	}
 	
 	public void loadWaveform(String name, String path) {
+		if (textureMap.containsKey(name)) {
+			System.out.println("Waveform \"" + name + "\" already exists!");
+			return; 
+		}
+		
 		try {
 			audioMap.put(name, Isjaki.loadWaveform(path));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		} catch (IOException e) { e.printStackTrace(); }
 	}
 }
