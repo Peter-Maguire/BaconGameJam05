@@ -13,6 +13,6 @@ public class Collidable {
 	}
 	
 	public boolean collides(Collidable collidable) {
-		return collidable.boundingBox.intersects(this.boundingBox);
+		return boundingBox.intersects(collidable.boundingBox());
 	}
 }
