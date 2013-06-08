@@ -7,13 +7,14 @@ import org.isjaki.audio.Waveform;
 import org.isjaki.graphics.Texture2D;
 
 public class Content {
-	private static HashMap<String, Texture2D> textureMap;
-	private static HashMap<String, Waveform>  audioMap;
+	private static HashMap<String, Texture2D> textureMap =
+								new HashMap<String, Texture2D>();
+	private static HashMap<String, Waveform>  audioMap = 
+								new HashMap<String, Waveform>();
 	
-	public Content() {
-		textureMap = new HashMap<String, Texture2D>();
-		audioMap   = new HashMap<String, Waveform>();
-		this.init();
+	public static void init() {		
+		//this.loadTexture("Name", "Path");
+		//this.loadWaveform("Name", "Path");
 	}
 	
 	public static Texture2D getTexture(String name) {
@@ -42,11 +43,5 @@ public class Content {
 		
 		try { audioMap.put(name, Isjaki.loadWaveform(path)); } 
 		catch (IOException e) { e.printStackTrace(); }
-	}
-	
-	/* Fuck you github, fuck you. */
-	public void init() {
-		//this.loadTexture("Name", "Path");
-		//this.loadWaveform("Name", "Path");
 	}
 }
