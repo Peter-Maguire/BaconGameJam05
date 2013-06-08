@@ -23,10 +23,11 @@ public class MainComponent extends Base2DGame {
 		super("BGJ 05", SCREEN_WIDTH, SCREEN_HEIGHT, true, false);
 	}
 
+	/* Muh jewish stylez */
 	protected void init() {
 		screenManager = new ScreenManager();
-		random = new Random();
-		content = new Content();
+		random 		  = new Random();
+		content 	  = new Content();
 	}
 	
 	protected void update() {
