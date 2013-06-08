@@ -3,6 +3,7 @@ package org.bgj05.entity;
 import org.bgj05.main.Content;
 import org.isjaki.utils.Time;
 import org.lwjgl.util.vector.Vector2f;
+import org.isjaki.graphics.Texture2D;
 
 public class DynamicEntity implements IEntity {
 	private Vector2f position;
@@ -25,6 +26,7 @@ public class DynamicEntity implements IEntity {
 	private String textureName;
 	public String textureName() { return textureName; }
 	
+	
 	private CollideCircle collision;
 	public CollideCircle getCollideCircle(){
 		return collision;
@@ -34,14 +36,20 @@ public class DynamicEntity implements IEntity {
 		return collision.collides(target.collision);
 	}
 	
+	public void onCollide(DynamicEntity target){
+		//default collision behavior, be default do nothing
+	}
 	
 	public DynamicEntity(String texture_name, Vector2f pos, Vector2f init_vel) {		
 		this.textureName = texture_name;
 		this.position = pos;
 		this.velocity = init_vel;
 		//make a collisionCircle at position, the size of the texture
-		//collision = new CollideCircle(pos, Content.getTexture(texture_name).dimensions());
+		collision = new CollideCircle(pos, 1);
+		//(float) (Content.getTexture(texture_name).dimensions().length())
+		
 	}
+	
 	
 	public void render() {
 		Content.getTexture(textureName).render(position, rotation);

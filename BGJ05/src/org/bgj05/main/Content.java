@@ -12,9 +12,21 @@ public class Content {
 	private static HashMap<String, Waveform>  audioMap = 
 								new HashMap<String, Waveform>();
 	
+	
+	
+	
+	
 	public static void init() {		
-		//this.loadTexture("Name", "Path");
+		//I guess this is how this works
+		
+		//load asteroids
+		loadTexture("bad_asteroid.png", "/BGJ05/res/");
+		//this.loadTexture(name, path)
+		
 		//this.loadWaveform("Name", "Path");
+		
+		
+		
 	}
 	
 	public static Texture2D getTexture(String name) {
@@ -25,7 +37,7 @@ public class Content {
 		return audioMap.get(name);
 	}
 	
-	protected void loadTexture(String name, String path) {
+	protected static void loadTexture(String name, String path) {
 		if (textureMap.containsKey(name)) {
 			System.out.println("Texture \"" + name + "\" already exists!");
 			return; 
@@ -35,7 +47,7 @@ public class Content {
 		catch (IOException e) { e.printStackTrace(); }
 	}
 	
-	protected void loadWaveform(String name, String path) {
+	protected static void loadWaveform(String name, String path) {
 		if (textureMap.containsKey(name)) {
 			System.out.println("Waveform \"" + name + "\" already exists!");
 			return; 

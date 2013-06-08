@@ -4,17 +4,17 @@ import org.lwjgl.util.vector.Vector2f;
 
 public class Asteroid extends DynamicEntity {
 
-	private static final String texture = "placeholder.png";
+	private static final String texture = "/BGJ05/res/bad_asteroid.png";
 	
 	
 	public Asteroid(Vector2f pos, Vector2f init_vel) {
 		super(texture, pos, init_vel);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public void onCollides(DynamicEntity target){
 		//put all the collision logic here
 		
+		//only one needs to run the bounce
 		if(target instanceof Asteroid){
 			bounce(this, (Asteroid)target);
 		}
