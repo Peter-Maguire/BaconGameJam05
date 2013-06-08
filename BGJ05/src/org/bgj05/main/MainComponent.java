@@ -5,8 +5,8 @@ import org.isjaki.*;
 import org.lwjgl.opengl.GL11;
 
 public class MainComponent extends Base2DGame {
-	public static int SCREEN_WIDTH 	= 1280;
-	public static int SCREEN_HEIGHT	= 720;
+	public static int SCREEN_WIDTH 	= 640;
+	public static int SCREEN_HEIGHT	= 640;
 	
 	/* This is the part where I wish Java inherited
 	 * properties from C#, oh god why not omfg */

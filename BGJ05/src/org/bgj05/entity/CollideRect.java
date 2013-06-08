@@ -14,5 +14,6 @@ public class CollideRect {
 	
 	public boolean collides(CollideRect collidable) {
 		return boundingBox.intersects(collidable.boundingBox());
+		
 	}
 }

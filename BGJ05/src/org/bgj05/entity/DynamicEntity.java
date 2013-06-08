@@ -1,6 +1,7 @@
 package org.bgj05.entity;
 
 import org.bgj05.main.Content;
+import org.isjaki.utils.Time;
 import org.lwjgl.util.vector.Vector2f;
 
 public class DynamicEntity implements IEntity {
@@ -35,7 +36,7 @@ public class DynamicEntity implements IEntity {
 	}
 
 	public void update() { 
-		position.x += velocity.x;
-		position.y += velocity.y;
+		position.x += velocity.x * Time.getDeltaRelation();
+		position.y += velocity.y * Time.getDeltaRelation();
 	}
 }
