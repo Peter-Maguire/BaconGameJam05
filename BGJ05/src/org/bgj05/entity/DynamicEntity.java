@@ -1,9 +1,9 @@
 package org.bgj05.entity;
 
-import org.bgj05.main.MainComponent;
+import org.bgj05.main.Content;
 import org.lwjgl.util.vector.Vector2f;
 
-public class DynamicEntity implements IEntity {
+public class DynamicEntity extends Collidable implements IEntity {
 	private Vector2f position;
 	public Vector2f position() { return position; }
 	public void setPosition(Vector2f ny) { position = ny; }
@@ -25,17 +25,22 @@ public class DynamicEntity implements IEntity {
 	public String textureName() { return textureName; }
 	
 	public DynamicEntity(String texture_name, Vector2f pos, Vector2f init_vel) {
+		super(pos, Content.getTexture(texture_name).dimensions());
+		
 		this.textureName = texture_name;
 		this.position = pos;
 		this.velocity = init_vel;
 	}
 	
 	public void render() {
-		MainComponent.content().getTexture(textureName).render(position, rotation);
+		Content.getTexture(textureName).render(position, rotation);
 	}
 
 	public void update() { 
 		position.x += velocity.x;
 		position.y += velocity.y;
+		
+		this.boundingBox.setX((int) position.x);
+		this.boundingBox.setY((int) position.y);
 	}
 }

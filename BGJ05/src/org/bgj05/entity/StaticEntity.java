@@ -1,9 +1,9 @@
 package org.bgj05.entity;
 
-import org.bgj05.main.MainComponent;
+import org.bgj05.main.Content;
 import org.lwjgl.util.vector.Vector2f;
 
-public class StaticEntity implements IEntity {
+public class StaticEntity extends Collidable implements IEntity {
 	private Vector2f position;
 	public Vector2f position() { return position; }
 	public void setPosition(Vector2f ny) { position = ny; }
@@ -17,12 +17,14 @@ public class StaticEntity implements IEntity {
 	public String textureName() { return textureName; }
 	
 	public StaticEntity(String texture_name, Vector2f pos) {
+		super(pos, Content.getTexture(texture_name).dimensions());
+		
 		this.textureName = texture_name;
 		this.position = pos;
 	}
 	
 	public void render() {
-		MainComponent.content().getTexture(textureName).render(position, rotation);
+		Content.getTexture(textureName).render(position, rotation);
 	}
 
 	/* I don't fucking know */

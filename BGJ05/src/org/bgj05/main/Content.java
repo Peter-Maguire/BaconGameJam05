@@ -7,8 +7,8 @@ import org.isjaki.audio.Waveform;
 import org.isjaki.graphics.Texture2D;
 
 public class Content {
-	private HashMap<String, Texture2D> textureMap;
-	private HashMap<String, Waveform>  audioMap;
+	private static HashMap<String, Texture2D> textureMap;
+	private static HashMap<String, Waveform>  audioMap;
 	
 	public Content() {
 		textureMap = new HashMap<String, Texture2D>();
@@ -16,11 +16,11 @@ public class Content {
 		this.init();
 	}
 	
-	public Texture2D getTexture(String name) {
+	public static Texture2D getTexture(String name) {
 		return textureMap.get(name);
 	}
 	
-	public Waveform getWaveform(String name) {
+	public static Waveform getWaveform(String name) {
 		return audioMap.get(name);
 	}
 	
