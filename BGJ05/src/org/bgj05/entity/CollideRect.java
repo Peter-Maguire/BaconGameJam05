@@ -12,8 +12,12 @@ public class CollideRect {
 				(int) pos.y, (int) dim.x, (int) dim.y);
 	}
 	
+	public void update(Vector2f newPos){
+		boundingBox.setLocation((int)newPos.x, (int)newPos.y);
+		
+	}
+	
 	public boolean collides(CollideRect collidable) {
 		return boundingBox.intersects(collidable.boundingBox());
-		
 	}
 }
