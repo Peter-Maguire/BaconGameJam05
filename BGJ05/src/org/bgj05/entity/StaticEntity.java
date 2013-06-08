@@ -8,6 +8,11 @@ public class StaticEntity implements IEntity {
 	public Vector2f position() { return position; }
 	public void setPosition(Vector2f ny) { position = ny; }
 	
+	private float rotation;
+	public float rotation() { return rotation; }
+	public void setRotation(float ny) { rotation = ny; }
+	public void rotate(float ny) { rotation += ny; }
+	
 	private String textureName;
 	public String textureName() { return textureName; }
 	
@@ -17,7 +22,7 @@ public class StaticEntity implements IEntity {
 	}
 	
 	public void render() {
-		MainComponent.content().getTexture(textureName).render(position);
+		MainComponent.content().getTexture(textureName).render(position, rotation);
 	}
 
 	/* I don't fucking know */
