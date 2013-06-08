@@ -25,13 +25,13 @@ public class DynamicEntity implements IEntity {
 	private String textureName;
 	public String textureName() { return textureName; }
 	
-	private CollideRect collisionBox;
-	public CollideRect getCollideRect(){
-		return collisionBox;
+	private CollideCircle collision;
+	public CollideCircle getCollideCircle(){
+		return collision;
 	}
 	
 	public boolean collides(DynamicEntity target){
-		return collisionBox.collides(target.getCollideRect());
+		return collision.collides(target.collision);
 	}
 	
 	
@@ -39,8 +39,8 @@ public class DynamicEntity implements IEntity {
 		this.textureName = texture_name;
 		this.position = pos;
 		this.velocity = init_vel;
-		//make a collisionBox at position, the size of the texture
-		collisionBox = new CollideRect(pos, Content.getTexture(texture_name).dimensions());
+		//make a collisionCircle at position, the size of the texture
+		//collision = new CollideCircle(pos, Content.getTexture(texture_name).dimensions());
 	}
 	
 	public void render() {
@@ -51,6 +51,6 @@ public class DynamicEntity implements IEntity {
 		position.x += velocity.x * Time.getDeltaRelation();
 		position.y += velocity.y * Time.getDeltaRelation();
 		
-		collisionBox.update(position);
+		collision.setPos(position);
 	}
 }
