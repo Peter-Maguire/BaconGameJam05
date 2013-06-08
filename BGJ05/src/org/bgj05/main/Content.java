@@ -44,7 +44,9 @@ public class Content {
 		catch (IOException e) { e.printStackTrace(); }
 	}
 	
+	/* Fuck you github, fuck you. */
 	public void init() {
-		this.loadTexture("Test_Name", "res/test.png");
+		//this.loadTexture("Name", "Path");
+		//this.loadWaveform("Name", "Path");
 	}
 }
